@@ -4,6 +4,11 @@ import { AuthRouteHelper } from 'core/auth/auth-route-helper';
 import { AuthService } from 'core/auth/auth-service';
 import { SignIn } from '../sign-in/sign-in';
 import { Tasks } from '../tasks/tasks';
+import { Home } from '../home/home';
+import { NewConflict } from '../new-conflict/new-conflict';
+import { Conflict } from '../conflict/conflict';
+import { Conflicts } from '../conflicts/conflicts';
+
 
 const styles: string = require('./app.scss');
 const template: string = require('./app.html');
@@ -19,8 +24,12 @@ const template: string = require('./app.html');
 })
 
 @RouteConfig([
-  {path: '/', component: SignIn, as: 'SignIn'},
-  {path: '/tasks', component: Tasks, as: 'Tasks'}
+  {path: '/', component: Home, as: 'Home'},
+  {path: '/signin', component: SignIn, as: 'SignIn'},
+  {path: '/tasks', component: Tasks, as: 'Tasks'},
+  {path: '/new-conflict', component: NewConflict, as: 'NewConflict'},
+  {path: '/conflict:id', component: Conflict, as: 'Conflict'},
+  {path: '/conflicts', component: Conflicts, as: 'Conflicts'}
 ])
 
 export class App {
@@ -32,8 +41,17 @@ export class App {
     });
   }
 
+  home(): void {
+    window.location.replace('/');
+  }
+
+  signIn(): void {
+    window.location.replace('/signin');
+  }
+
   signOut(): void {
     this.auth.signOut();
     window.location.replace('/');
   }
+
 }

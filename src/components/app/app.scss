@@ -32,6 +32,12 @@
 }
 
 
+.header__title__link {
+  text-decoration: none;
+  text-rendering: auto;
+  color: #fff;
+}
+
 .header__links {
   @include clearfix;
   float: right;
@@ -53,7 +59,6 @@
     }
   }
 }
-
 
 .header__link {
   display: block;

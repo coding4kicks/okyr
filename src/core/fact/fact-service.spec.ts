@@ -31,7 +31,7 @@ describe('FactService', () => {
         done();
       });
 
-      factService.createFact('test', 'test');
+      factService.createFact('test', 'test', 'test', 1);
       firebaseRef.flush();
     });
   });

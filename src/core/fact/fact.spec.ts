@@ -19,7 +19,7 @@ describe('Fact', () => {
   let fact: Fact;
 
   beforeEach(() => {
-    fact = new Fact('test', 1);
+    fact = new Fact('testText', 'testUrl', 'testLocation', 1);
   });
 
   it('should set text with provided `text` param', () => {

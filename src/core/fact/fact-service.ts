@@ -4,8 +4,8 @@ import { IFact, Fact } from './fact';
 export class FactService {
   constructor(private ref: Firebase) {}
 
-  createFact(title: string, url: string): void {
-    this.ref.push(new Fact(title, url), (error: Error) => {
+  createFact(title: string, url: string, location: string, num: number): void {
+    this.ref.push(new Fact(title, url, location, num), (error: Error) => {
       if (error) {
         console.error('ERROR @ createFact :', error);
       }

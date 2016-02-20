@@ -1,7 +1,7 @@
 export interface IUser {
   id: string; // set auth.id
   name: string;
-  image: string;
+  image?: string;
   createdAt: number;
   conflicts: [string]; // TODO: switch to conflicts
   facts: [string]; // TODO: switch to facts
@@ -18,9 +18,9 @@ export class User implements IUser {
   facts: [string] = <[string]> [];
   comments: [string] = <[string]> [];
 
-  constructor(id: string, name: string, image: string) {
+  constructor(id: string, name: string, image?: string) {
     this.id = id;
     this.name = name;
-    this.image = image;
+    if (image) { this.image = image };
   }
 }

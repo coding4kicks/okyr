@@ -1,17 +1,21 @@
 <div class="g-row conflict">
     <div class="g-col">
-        <h1 class="conflict__heading">New Conflict</h1>
-        <form class="task-form" (ngSubmit)="submit()" novalidate>
-            <input
-                    (keyup.escape)="clear()"
-                    ngControl="title"
-                    [(ngModel)]="title"
-                    autocomplete="off"
-                    autofocus
-                    class="task-form__input"
-                    placeholder="What needs to be done?"
-                    required
-                    type="text">
-        </form>
+        <h3 class="conflict__heading">New Conflict</h3>
+        <div class="okyr-content--body">
+            <img class="okyr-image--full" src="images/duel.jpg"/>
+            <form class="task-form" (ngSubmit)="submit()" novalidate>
+                <input
+                        (keyup.escape)="clear()"
+                        ngControl="title"
+                        [(ngModel)]="title"
+                        autocomplete="off"
+                        autofocus
+                        class="okyr-form__input"
+                        placeholder="Name the conflict..."
+                        required
+                        type="text">
+            </form>
+            <button class="okyr-form__button">Challenge</button>
+        </div>
     </div>
 </div>

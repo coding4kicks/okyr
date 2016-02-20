@@ -14,13 +14,13 @@ export class AuthRouteHelper {
 
   static requireAuth(): boolean {
     const { auth, router } = AuthRouteHelper;
-    if (!auth.authenticated) router.navigate(['/SignIn']);
+    if (!auth.authenticated) router.navigate(['SignIn']);
     return auth.authenticated;
   }
 
   static requireUnauth(): boolean {
     const { auth, router } = AuthRouteHelper;
-    if (auth.authenticated) router.navigate(['/Tasks']);
+    //if (auth.authenticated) router.navigate(['Tasks']);
     return !auth.authenticated;
   }
 

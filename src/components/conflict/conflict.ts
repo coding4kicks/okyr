@@ -13,7 +13,7 @@ const template: string = require('./conflict.html');
   template
 })
 
-@CanActivate(() => AuthRouteHelper.requireUnauth())
+//@CanActivate(() => AuthRouteHelper.requireUnauth())
 
 export class Conflict {
   constructor(private auth: AuthService, private router: Router) {}

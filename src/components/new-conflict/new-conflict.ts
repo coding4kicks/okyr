@@ -14,7 +14,7 @@ import { ConflictService } from 'core/conflict/conflict-service';
   template
 })
 
-@CanActivate(() => AuthRouteHelper.requireUnauth())
+//@CanActivate(() => AuthRouteHelper.requireUnauth())
 
 export class NewConflict {
   title: string = '';

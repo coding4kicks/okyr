@@ -13,19 +13,19 @@ const template: string = require('./home.html');
   template
 })
 
-@CanActivate(() => AuthRouteHelper.requireUnauth())
+//@CanActivate(() => AuthRouteHelper.requireUnauth())
 
 export class Home {
   constructor(private auth:AuthService, private router:Router) {
+    this.router = router;
   }
 
   newConflict():void {
-    console.log('hey');
-    window.location.replace('/new-conflict');
+    this.router.navigate(['NewConflict']);
   }
 
   conflicts():void {
-    window.location.replace('/conflicts');
+    this.router.navigate(['Conflicts']);
   }
 
 }

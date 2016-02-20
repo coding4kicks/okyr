@@ -1,5 +1,17 @@
 <div class="g-row conflict">
     <div class="g-col">
-        <h1 class="conflict__heading">Conflict</h1>
+        <h1 class="conflict__heading">New Conflict</h1>
+        <form class="task-form" (ngSubmit)="submit()" novalidate>
+            <input
+                    (keyup.escape)="clear()"
+                    ngControl="title"
+                    [(ngModel)]="title"
+                    autocomplete="off"
+                    autofocus
+                    class="task-form__input"
+                    placeholder="What needs to be done?"
+                    required
+                    type="text">
+        </form>
     </div>
 </div>

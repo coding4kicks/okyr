@@ -1,4 +1,5 @@
 import { EventEmitter } from 'angular2/core';
+import { FIREBASE_URL } from '../../config';
 
 
 export class AuthService {
@@ -24,6 +25,17 @@ export class AuthService {
 
   get id(): string {
     return this.authenticated ? this.authData.uid : '';
+  }
+
+  signInAnonymously() : void {
+    var ref = new Firebase(FIREBASE_URL);
+    ref.authAnonymously(function(error, authData) {
+      if (error) {
+        console.log("Login Failed!", error);
+      } else {
+        console.log("Authenticated successfully with payload:", authData);
+      }
+    });
   }
 
   signInWithGithub(): Promise<any> {

@@ -5,6 +5,7 @@ import { AuthService } from 'core/auth/auth-service';
 
 const styles: string = require('./new-conflict.scss');
 const template: string = require('./new-conflict.html');
+import { ConflictService } from 'core/conflict/conflict-service';
 
 
 @Component({
@@ -16,24 +17,22 @@ const template: string = require('./new-conflict.html');
 @CanActivate(() => AuthRouteHelper.requireUnauth())
 
 export class NewConflict {
-  constructor(private auth: AuthService, private router: Router) {}
+  title: string = '';
+  imageUrl: string = ''; // Figure out url
 
-  //signInWithGithub(): void {
-  //  this.auth.signInWithGithub()
-  //    .then(() => this.postSignIn());
-  //}
-  //
-  //signInWithGoogle(): void {
-  //  this.auth.signInWithGoogle()
-  //    .then(() => this.postSignIn());
-  //}
-  //
-  //signInWithTwitter(): void {
-  //  this.auth.signInWithTwitter()
-  //    .then(() => this.postSignIn());
+  constructor(public conflictService: ConflictService) {}
+
+  //clear(): void {
+  //  this.title = '';
   //}
 
-  //private postSignIn(): void {
-  //  this.router.navigate(['/Tasks']);
-  //}
+  submit(): void {
+    const title: string = this.title.trim();
+    if (title.length) {
+      this.conflictService.createConflict(title, this.imageUrl);
+    }
+
+    // TODO: route to conflict view page or show Challenge or create side.
+    //this.clear();
+  }
 }

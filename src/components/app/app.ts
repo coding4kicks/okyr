@@ -36,6 +36,8 @@ export class App {
   authenticated: boolean = false;
 
   constructor(private auth: AuthService, routeHelper: AuthRouteHelper) {
+    auth.signInAnonymously();
+
     auth.subscribe((authenticated: boolean) => {
       this.authenticated = authenticated;
     });
